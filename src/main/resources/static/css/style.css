@@ -1,0 +1,7 @@
+/*.emr-background{*/
+/*    background-image: url("../../s");*/
+/*}*/
+.main-background{
+    background: url(../images/emr-background.jpg) no-repeat fixed center center;
+    background-size: cover;
+}

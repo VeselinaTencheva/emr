@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+
+<!--    <style>-->
+<!--        body {-->
+<!--            background: url(../static/images/emr-background.jpg) no-repeat fixed center center;-->
+<!--            background-size: cover;-->
+<!--        }-->
+<!--    </style>-->
+    <link rel="stylesheet" media="screen" th:href="@{../static/css/common.css}" />
+</head>
+<body >
+<div>
+    <div class="row">
+        <header th:replace="fragments :: header"></header>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <side-nav th:replace="fragments :: side-nav"></side-nav>
+        </div>
+        <div class="col-7" style="overflow: hidden">
+            <div class="row d-flex justify-content-center py-4">
+                <h1 class="font-weight-bold" style="font-family: 'AvenirNextLTPro-Regular', 'Helvetica Neue', 'Helvetica', Arial, sans-serif;" th:text="${firstName} + ' ' + ${lastName}"></h1>
+            </div>
+            <div class="row section-white-container">
+                <div class="col">
+                    <div class="row" style="border-bottom-color: #0c5460">
+                        <h3 style="color: #0c5460">Details</h3>
+                    </div>
+                    <div class="row" style="color: #4e555b">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col form-group mt-4 w-100">
+                                    <label for="firstName"> First Name</label>
+                                    <input type="text" class="form-control w-100"  id="firstName"  name="firstName"
+                                           placeholder="First Name">
+<!--                                    <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>-->
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group mt-4 w-100">
+                                    <label for="email"> Email</label>
+                                    <input type="text" class="form-control w-100"  id="email"  name="email"
+                                           placeholder="Email">
+                                    <!--                                    <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>-->
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group mt-4 w-100">
+                                    <label for="workPlace">Work Place</label>
+                                    <input type="text" class="form-control w-100"  id="workPlace"  name="workPlace"
+                                           placeholder="Work Place">
+                                    <!--                                    <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>-->
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col d-flex align-items-center mt-4">
+                                    <label for="workWithHealthFunds">Work With Heath Funds</label>
+                                    <input type="checkbox" class="ml-4"  id="workWithHealthFunds"  name="workWithHealthFunds">
+                                    <!--                                    <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>-->
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col w-100 form-group mt-4">
+                                    <label for="lastName"> Last Name</label>
+                                    <input type="text" class="form-control w-100"  id="lastName"  name="lastName"
+                                           placeholder="Last Name">
+                                    <!--                                    <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>-->
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col w-100 form-group mt-4">
+                                    <label for="upin"> UPIN</label>
+                                    <input type="text" class="form-control w-100"  id="upin"  name="upin"
+                                           placeholder="UPIN">
+                                    <!--                                    <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>-->
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col w-100 form-group mt-4">
+                                    <label for="workingHours"> Working Hours</label>
+                                    <input type="text" class="form-control w-100"  id="workingHours"  name="workingHours"
+                                           placeholder="Working Hours">
+                                    <!--                                    <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>-->
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col w-100 form-group mt-4">
+                                    <label for="pricePerVisitation"> Price Per Visitation</label>
+                                    <input type="text" class="form-control w-100 outline-none"  id="pricePerVisitation"  name="pricePerVisitation"
+                                           placeholder="Price Per Visitation">
+                                    <!--                                    <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--            TODO add to specialization sidenav or somewhere else -->
+<!--            <div class="mt-5 row section-white-container">-->
+<!--                <div class="col">-->
+<!--                    <div class="row" style="border-bottom-color: #0c5460">-->
+<!--                        <h3 style="color: #0c5460">Specialization</h3>-->
+<!--                    </div>-->
+<!--                    <div class="row" >-->
+<!--                        <div class="col-6 form-group w-100" th:each="specialization: ${specializations}">-->
+<!--                            <label for="specialization" th:text="${specialization.toString()}"> </label>-->
+<!--                            <input type="checkbox" class="ml-4"  id="specialization"  name="specialization">-->
+<!--                            &lt;!&ndash;                                    <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>&ndash;&gt;-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

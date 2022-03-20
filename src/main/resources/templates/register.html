@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<div class="row h-100" style="background-color: #0c5460">
+    <div class="col-4 d-flex align-items-center" style="background-color: #0c5460">
+        <div class="container ">
+            <h1 class="center-text" style="color: whitesmoke; font-weight: bold;">Electronic Medical Records</h1>
+            <br>
+            <h2 class="center-text" style="color: whitesmoke;">Sign Up For Medical Practitioner</h2>
+
+            <div class="d-flex justify-content-center my-5">
+                <form class="w-75"  name="login" th:action="@{/register}" th:object="${doctor}" method="post">
+                    <fieldset>
+<!--                        <div th:if="${param.logout}" class="alert alert-success">You have been logged out. </div>-->
+                        <div class="form-group mt-4">
+                            <input type="text" class="form-control w-100"  id="username" th:field="${doctor.email}" name="email"
+                                   placeholder="Email">
+                            <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span>
+
+                        </div>
+                        <div class="form-group mt-4">
+                            <input type="password" class="form-control w-100" id="password" th:field="${doctor.password}" name="password"
+                                   placeholder="Password">
+                            <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</span>
+                        </div>
+                        <div class="form-group mt-4">
+                            <input type="password" class="form-control w-100" id="confirmPassword" th:field="${doctor.confirmPassword}" name="repeatPassword"
+                                   placeholder="Confirm Password">
+                            <span class="text-danger" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Confirm Password Error</span>
+                        </div>
+                        <div class="form-group mt-4">
+                            <input type="text" class="form-control w-100" id="firstName" th:field="${doctor.firstName}" name="firstName"
+                                   placeholder="First Name">
+                            <span class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</span>
+                        </div>
+                        <div class="form-group mt-4">
+                            <input type="text" class="form-control w-100" id="lastName"  th:field="${doctor.lastName}"name="lastName"
+                                   placeholder="Last Name">
+                            <span class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</span>
+                        </div>
+                        <div class="form-group mt-4">
+                            <input type="text" class="form-control w-100" id="upin" th:field="${doctor.upin}" name="upin"
+                                   placeholder="UPIN">
+                            <span class="text-danger" th:if="${#fields.hasErrors('upin')}" th:errors="*{upin}">UPIN Error</span>
+                        </div>
+                        <div class="form-group mt-4">
+                            <input type="text" class="form-control w-100" id="workPlace" th:field="${doctor.workPlace}" name="workPlace"
+                                   placeholder="Medical Center">
+                            <span class="text-danger" th:if="${#fields.hasErrors('workPlace')}" th:errors="*{workPlace}">Medical Center Error</span>
+                        </div>
+                        <div class="form-actions mt-5 d-flex justify-content-center" >
+                            <button type="submit" class="btn btn-warning w-50">Sign Up</button>
+                        </div>
+                        <div class="mt-5 d-flex justify-content-center">
+                            <h5 style="color: white">Already have an account?  </h5>
+                            <a th:href="@{/login}" class="forgot-password underline px-2" style="font-size: 16px" href="">Go to sign in</a>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-8 p-0">
+        <div class="emr-image"></div>
+    </div>
+</div>
+</body>
+</html>
