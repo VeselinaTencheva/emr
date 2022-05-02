@@ -1,13 +1,9 @@
 package com.example.Medical.Records.controller;
-import com.example.Medical.Records.dto.doctorDTO.CreateOrUpdateDoctorDTO;
-import com.example.Medical.Records.dto.patientDTO.CreateOrUpdatePatientDTO;
-import com.example.Medical.Records.entity.Specialization;
+import com.example.Medical.Records.dto.physicianDTO.CreateOrUpdatePhysicianDTO;
+import com.example.Medical.Records.entity.DepartmentType;
 import com.example.Medical.Records.entity.User;
-import com.example.Medical.Records.models.binding.DoctorRegistrationBindingModel;
-import com.example.Medical.Records.models.binding.PatientRegistrationBindingModel;
-//import com.example.Medical.Records.service.DoctorService;
-import com.example.Medical.Records.service.DoctorService;
-import com.example.Medical.Records.service.PatientService;
+import com.example.Medical.Records.models.binding.PhysicianRegistrationBindingModel;
+import com.example.Medical.Records.service.PhysicianService;
 import com.example.Medical.Records.service.UserService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -31,7 +27,7 @@ public class IndexController {
 
     private UserService userService;
 
-    private DoctorService doctorService;
+    private PhysicianService doctorService;
 
     private ModelMapper modelMapper;
 
@@ -55,7 +51,7 @@ public class IndexController {
             model.addAttribute("firstName", loggedUser.getFirstName());
             model.addAttribute("lastName", loggedUser.getLastName());
 //            System.out.println( Specialization.values());
-            model.addAttribute("specializations", Specialization.values());
+            model.addAttribute("departments", DepartmentType.values());
             return "index";
         }
         else {
@@ -75,27 +71,29 @@ public class IndexController {
     @PreAuthorize("isAnonymous()")
     public String register(Model model){
         System.out.println("before");
-        model.addAttribute("doctor", new DoctorRegistrationBindingModel());
+        model.addAttribute("physician", new PhysicianRegistrationBindingModel());
+        model.addAttribute("departments", DepartmentType.values());
         System.out.println("after");
         return "register";
     }
 
     @PostMapping("/register")
     @PreAuthorize("isAnonymous()")
-    public String registerConfirm(@Valid @ModelAttribute(name = "doctorBinding") DoctorRegistrationBindingModel doctor, BindingResult bindingResult) {
+    public String registerConfirm(@Valid @ModelAttribute(name = "physicianBinding") PhysicianRegistrationBindingModel physicianRegistrationBindingModel, BindingResult bindingResult) {
         System.out.println("errors:");
         System.out.println(bindingResult.getAllErrors());
         if (!bindingResult.hasErrors()) {
-            if (!doctor.getPassword().equals(doctor.getConfirmPassword())) {
+            System.out.println("physicianRegistrationBindingModel.getConfirmPassword(): " +  physicianRegistrationBindingModel.getConfirmPassword());
+            if (!physicianRegistrationBindingModel.getPassword().equals(physicianRegistrationBindingModel.getConfirmPassword())) {
 
                 bindingResult.hasErrors();
-                System.out.println("no errors not equal pass");
+                System.out.println("no errors, not equal pass");
                 return "register";
             }
 
             System.out.println("register");
 //            doctor.set
-            this.doctorService.create(this.modelMapper.map(doctor, CreateOrUpdateDoctorDTO.class));
+//            this.doctorService.create(this.modelMapper.map(physicianRegistrationBindingModel, CreateOrUpdatePhysicianDTO.class));
 
             return "login";
         }else{

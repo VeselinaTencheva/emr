@@ -32,6 +32,9 @@ public class User extends BaseEntity implements UserDetails {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
+    @Column(name = "ssn", nullable = false, unique = true)
+    private String ssn;
+
 
     @Column
     private boolean isAccountNonExpired;

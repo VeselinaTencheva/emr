@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Entity(name="medicament")
-public class Medicament extends BaseEntity{
+public class Medication extends BaseEntity{
 
     @Column(name="name", nullable = false)
     private String name;
@@ -22,11 +22,11 @@ public class Medicament extends BaseEntity{
     @Column(name="description")
     private String description;
 
-    @Column(name="warnings")
-    private String warnings;
+    @Column(name="brand")
+    private String brand;
 
-    @ManyToMany(mappedBy = "medicaments", fetch = FetchType.EAGER)
-    private Set<Treatment> treatments;
+    @ManyToMany(mappedBy = "medications", fetch = FetchType.EAGER)
+    private Set<Prescription> prescriptions;
 
 
 }

@@ -1,6 +1,5 @@
 package com.example.Medical.Records.models.binding;
 
-import com.example.Medical.Records.entity.Specialization;
 import com.example.Medical.Records.models.validation.ValidConfirmPassword;
 import com.example.Medical.Records.models.validation.ValidPassword;
 import lombok.AllArgsConstructor;
@@ -21,6 +20,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 public class PatientRegistrationBindingModel {
+
     @NotBlank(message = "First name is mandatory")
     @Length(max = 32, min = 1,message = " - Error: First Name length must be between 1 or 32 characters!")
     private String firstName;
@@ -39,21 +39,10 @@ public class PatientRegistrationBindingModel {
     @Email
     private String email;
 
-    @NotBlank(message = "National ID is mandatory")
-    @Digits(integer = 10, fraction = 0, message = "National ID has to be exact 10 digits")
-    private String nationalID;
+    @NotBlank(message = "SSN is mandatory")
+    @Digits(integer = 9, fraction = 0, message = "SSN has to be exact 9 digits")
+    private String ssn;
 
-    @NotBlank
-    @Digits(integer = 6, fraction = 0, message = "National ID has to be exact 10 digits")
-    private String UPIN;
 
-    @NotBlank
-    private Specialization specialization;
 
-    @NotBlank
-    @Length(min=3)
-    private String workPlace;
-
-    @NotNull
-    private boolean isGp;
 }

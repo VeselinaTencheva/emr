@@ -10,11 +10,13 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "treatment")
-public class Treatment extends BaseEntity{
+public class Prescription extends BaseEntity{
 
-    @Column(name="type")
-    private TreatmentType type;
+    @ManyToOne
+    private Appointment appointment;
+
+    private String dose;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Medicament> medicaments;
+    private Set<Medication> medications;
 }

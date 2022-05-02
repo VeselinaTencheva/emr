@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -21,8 +22,9 @@ public class Diagnosis extends BaseEntity {
     @Column(name="description",nullable = false)
     private String description;
 
+    // TODO Can we have more than one diagnosis for one appointment? If not then the relationship must be one to one
     @OneToMany(mappedBy = "diagnosis", cascade = CascadeType.ALL)
     @JsonIgnoreProperties
-    private List<Visitation> visitations;
+    private Set<Appointment> appointments;
 
 }

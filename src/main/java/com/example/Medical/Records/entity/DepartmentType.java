@@ -2,7 +2,7 @@ package com.example.Medical.Records.entity;
 
 import lombok.Getter;
 @Getter
-public enum Specialization {
+public enum DepartmentType {
     IMMUNOLOGY,
     ANESTHESIOLOGY,
     CARDIOLOGY,
@@ -13,5 +13,6 @@ public enum Specialization {
     NEUROLOGY,
     ONCOLOGY,
     PATHOLOGY,
-    PULMONOLOGY
+    PULMONOLOGY,
+    GENERAL_PRACTITIONER
 }

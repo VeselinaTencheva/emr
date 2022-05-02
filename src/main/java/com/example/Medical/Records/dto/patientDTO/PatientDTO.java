@@ -1,6 +1,6 @@
 package com.example.Medical.Records.dto.patientDTO;
 
-import com.example.Medical.Records.entity.Doctor;
+import com.example.Medical.Records.entity.Physician;
 import lombok.Data;
 
 @Data
@@ -16,5 +16,5 @@ public class PatientDTO
 
     private String extraHealthInsurancePolicy;
 
-    private Doctor doctor;
+    private Physician physician;
 }

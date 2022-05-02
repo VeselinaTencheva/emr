@@ -1,6 +1,5 @@
 package com.example.Medical.Records.dto.patientDTO;
 
-import com.example.Medical.Records.entity.Doctor;
 import com.example.Medical.Records.models.validation.ValidConfirmPassword;
 import com.example.Medical.Records.models.validation.ValidPassword;
 import lombok.*;

@@ -1,8 +1,8 @@
 package com.example.Medical.Records.dto.visitationDTO;
 
 import com.example.Medical.Records.entity.Diagnosis;
-import com.example.Medical.Records.entity.Doctor;
 import com.example.Medical.Records.entity.Patient;
+import com.example.Medical.Records.entity.Physician;
 import com.example.Medical.Records.entity.SickLeave;
 import com.sun.istack.NotNull;
 import lombok.Data;
@@ -23,8 +23,8 @@ public class CreateOrUpdateVisitationDTO {
 
     private SickLeave sickLeave;
 
-    @NotBlank(message = "Doctor is mandatory")
-    private Doctor doctor;
+    @NotBlank(message = "Physician is mandatory")
+    private Physician physician;
 
     @NotBlank(message = "Patient is mandatory")
     private Patient patient;

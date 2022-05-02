@@ -2,7 +2,7 @@ package com.example.Medical.Records.service.implementations;
 
 import com.example.Medical.Records.dto.visitationDTO.CreateOrUpdateVisitationDTO;
 import com.example.Medical.Records.dto.visitationDTO.VisitationDTO;
-import com.example.Medical.Records.entity.Visitation;
+import com.example.Medical.Records.entity.Appointment;
 import com.example.Medical.Records.repository.VisitationRepo;
 import com.example.Medical.Records.service.VisitationService;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,7 +19,7 @@ public class VisitationServiceImpl implements VisitationService {
     private final VisitationRepo visitationRepo;
     private final ModelMapper modelMapper;
 
-    private VisitationDTO convertToVisitationDTO(Visitation visitation) {
+    private VisitationDTO convertToVisitationDTO(Appointment visitation) {
         return modelMapper.map(visitation, VisitationDTO.class);
     }
 
@@ -40,13 +39,13 @@ public class VisitationServiceImpl implements VisitationService {
     }
 
     @Override
-    public Visitation create(CreateOrUpdateVisitationDTO createOrUpdateVisitationDTO) {
-        return this.visitationRepo.saveAndFlush(modelMapper.map(createOrUpdateVisitationDTO,Visitation.class));
+    public Appointment create(CreateOrUpdateVisitationDTO createOrUpdateVisitationDTO) {
+        return this.visitationRepo.saveAndFlush(modelMapper.map(createOrUpdateVisitationDTO, Appointment.class));
     }
 
     @Override
-    public Visitation update(Long id, CreateOrUpdateVisitationDTO createOrUpdateVisitationDTO) {
-        Visitation visitation = modelMapper.map(createOrUpdateVisitationDTO,Visitation.class);
+    public Appointment update(Long id, CreateOrUpdateVisitationDTO createOrUpdateVisitationDTO) {
+        Appointment visitation = modelMapper.map(createOrUpdateVisitationDTO, Appointment.class);
         visitation.setId(id);
         return this.visitationRepo.save(visitation);
     }

@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -21,5 +22,8 @@ public class SickLeave extends BaseEntity{
 
     @Column(name = "duration", nullable = false)
     private Integer duration;
+
+    @OneToOne
+    private Appointment appointment;
 
 }
